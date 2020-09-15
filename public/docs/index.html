@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/style.css" media="screen" />
+        <link rel="stylesheet" href="css/print.css" media="print" />
+        <script src="js/all.js"></script>
+
+        <link rel="stylesheet" href="css/highlight-darcula.css" media="" />
+        <script src="js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="" data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+<a href="#" id="nav-button">
+      <span>
+        NAV
+            <img src="images/navbar.png" alt="-image" class=""/>
+      </span>
+</a>
+<div class="tocify-wrapper">
+                <div class="lang-selector">
+                            <a href="#" data-language-name="bash">bash</a>
+                            <a href="#" data-language-name="javascript">javascript</a>
+                    </div>
+        <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+    <ul class="search-results"></ul>
+
+    <ul id="toc">
+    </ul>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="./collection.json">View Postman Collection</a></li>
+                            <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
+                    </ul>
+            <ul class="toc-footer" id="last-updated">
+            <li>Last updated: August 17 2020</li>
+        </ul>
+</div>
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1>Introduction</h1>
+<p>Welcome to our API documentation!</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile), and you can switch the programming language of the examples with the tabs in the top right (or from the nav menu at the top left on mobile).</aside><h1>Authenticating requests</h1>
+<p>This API is not authenticated.</p><h1>Endpoints</h1>
+<h2>User login</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"email":"minus","password":"minus"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer 9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr",
+};
+
+let body = {
+    "email": "minus",
+    "password": "minus"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status_code": 200,
+    "access_token": "9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr",
+    "token_type": "Bearer"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/login</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p><code><b>email</b></code>&nbsp; <small>string</small>     <br>
+An e-mail of the user</p>
+<p><code><b>password</b></code>&nbsp; <small>string</small>     <br>
+User password</p>
+<h2>Get list of the products</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/products" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer 9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/products"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer 9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "id": 292,
+        "name": "atque",
+        "ean": 24346320,
+        "type": "y",
+        "weight": 3,
+        "color": "Ivory",
+        "active": 0,
+        "image": "45a552ae1356579d4e6ec0326afa6518.jpg",
+        "deleted_at": null,
+        "created_at": "2020-08-15T15:43:42.000000Z",
+        "updated_at": "2020-08-15T18:21:31.000000Z"
+    }
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/products</code></strong></p>
+<h2>Store new product.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/product" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer 9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr" \
+    -d '{"name":"table","ean":6,"type":"B","weight":18,"color":"perspiciatis","active":false,"image":"fugiat"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/product"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer 9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr",
+};
+
+let body = {
+    "name": "table",
+    "ean": 6,
+    "type": "B",
+    "weight": 18,
+    "color": "perspiciatis",
+    "active": false,
+    "image": "fugiat"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "name": "table",
+        "ean": "11112233",
+        "type": "B",
+        "weight": "20",
+        "color": "Brown",
+        "active": "1",
+        "image": "1597577655.jpg",
+        "updated_at": "2020-08-16T11:34:16.000000Z",
+        "created_at": "2020-08-16T11:34:16.000000Z",
+        "id": 303
+    }
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/product</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p><code><b>name</b></code>&nbsp; <small>string</small>     <br>
+Name of the product.</p>
+<p><code><b>ean</b></code>&nbsp; <small>integer</small>     <br>
+EAN of the product.</p>
+<p><code><b>type</b></code>&nbsp; <small>string</small>     <br>
+type of the product.</p>
+<p><code><b>weight</b></code>&nbsp; <small>integer</small>     <br>
+weight of the product.</p>
+<p><code><b>color</b></code>&nbsp; <small>string</small>     <br>
+color of the product.</p>
+<p><code><b>active</b></code>&nbsp; <small>boolean</small>     <br>
+0 - inactive, 1 - active.</p>
+<p><code><b>image</b></code>&nbsp; <small>blob</small>     <br>
+image of the product.</p>
+<h2>Update the specified resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/product/1?name=table&amp;ean=iusto&amp;type=B&amp;weight=laborum&amp;color=non&amp;active=illum&amp;image=facilis" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer 9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/product/1"
+);
+
+let params = {
+    "name": "table",
+    "ean": "iusto",
+    "type": "B",
+    "weight": "laborum",
+    "color": "non",
+    "active": "illum",
+    "image": "facilis",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer 9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">
+{
+  "product": "product with id 301 edited sucessfully "
+  }
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-darkblue">PUT</small>
+<strong><code>api/product/{id}</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p><code><b>name</b></code>&nbsp;          <i>optional</i>    <br>
+string required Name of the product.</p>
+<p><code><b>ean</b></code>&nbsp;          <i>optional</i>    <br>
+int required EAN of the product.</p>
+<p><code><b>type</b></code>&nbsp;          <i>optional</i>    <br>
+string required type of the product.</p>
+<p><code><b>weight</b></code>&nbsp;          <i>optional</i>    <br>
+int required weight of the product.</p>
+<p><code><b>color</b></code>&nbsp;          <i>optional</i>    <br>
+string required color of the product.</p>
+<p><code><b>active</b></code>&nbsp;          <i>optional</i>    <br>
+boolean required 0 - inactive, 1 - active.</p>
+<p><code><b>image</b></code>&nbsp;          <i>optional</i>    <br>
+blob required image of the product.</p>
+<h2>Remove the product.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/product/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer 9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/product/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer 9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Product has been deleted."
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/product/{id}</code></strong></p>
+<h2>Restore the product.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/product/restore/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer 9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/product/restore/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer 9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Product has been restored."
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/product/restore/{id}</code></strong></p>
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+            </div>
+</div>
+<script>
+    $(function () {
+        var languages = ["bash","javascript"];
+        setupLanguages(languages);
+    });
+</script>
+</body>
+</html>

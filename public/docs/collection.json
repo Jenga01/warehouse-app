@@ -1,0 +1,288 @@
+{
+    "variables": [],
+    "info": {
+        "name": "Laravel API",
+        "_postman_id": "8bdb34c4-3430-4c72-b5cc-024c2dd678e9",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "User login",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "http:\/\/localhost\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"minus\",\n    \"password\": \"minus\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get list of the products",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/products",
+                            "query": [],
+                            "raw": "http:\/\/localhost\/api\/products"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Store new product.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/product",
+                            "query": [],
+                            "raw": "http:\/\/localhost\/api\/product"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"table\",\n    \"ean\": 6,\n    \"type\": \"B\",\n    \"weight\": 18,\n    \"color\": \"perspiciatis\",\n    \"active\": false,\n    \"image\": \"fugiat\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update the specified resource in storage.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/product\/:id",
+                            "query": [
+                                {
+                                    "key": "name",
+                                    "value": "table",
+                                    "description": "string required Name of the product.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "ean",
+                                    "value": "iusto",
+                                    "description": "int required EAN of the product.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "type",
+                                    "value": "B",
+                                    "description": "string required type of the product.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "weight",
+                                    "value": "laborum",
+                                    "description": "int required weight of the product.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "color",
+                                    "value": "non",
+                                    "description": "string required color of the product.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "active",
+                                    "value": "illum",
+                                    "description": "boolean required 0 - inactive, 1 - active.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "image",
+                                    "value": "facilis",
+                                    "description": "blob required image of the product.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/localhost\/api\/product\/:id?name=table&ean=iusto&type=B&weight=laborum&color=non&active=illum&image=facilis"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Remove the product.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/product\/:id",
+                            "query": [],
+                            "raw": "http:\/\/localhost\/api\/product\/:id"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Restore the product.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/product\/restore\/:id",
+                            "query": [],
+                            "raw": "http:\/\/localhost\/api\/product\/restore\/:id"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 9|h1kro28YLrZiPakxLQX3KFRX8YN4kHnw0vIuQEteckbAsThSwyYFvlzFYFSjEtjrRp94UUJzJYHLUcmr"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        }
+    ]
+}
