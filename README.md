@@ -123,7 +123,7 @@ This will be running command regstered in the App/Console/Kernel.php
 ```
 Command implementation:
 
-```
+```php
     public function handle()
     {
         $date = date("Y-m-d", strtotime('-7 day'));
