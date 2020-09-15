@@ -17,7 +17,7 @@ To populate database with fake data run:
 Following fake data will be generated:
 
 users
-```$factory->define(User::class, function (Faker $faker)
+```php $factory->define(User::class, function (Faker $faker)
 {
     $password = Hash::make('pass1234');
     return [
@@ -31,7 +31,7 @@ users
 ```
 
 products/price/quantity
-```$factory->define(Product::class, function (Faker $faker)
+```php $factory->define(Product::class, function (Faker $faker)
 {
     return [
         'name' => $faker->word,
@@ -63,17 +63,19 @@ $factory->define(Quantity::class, function (Faker $faker)
 ## Price/quantity history
 
 One-to-many many relationship between product and price tables
-
+```php
     public function prices()
     {
         return $this->hasMany(Price::class);
     }
+ ```
 One-to-many many relationship between product and quantity tables
-
+```php
     public function quantities()
     {
         return $this->hasMany(Quantity::class);
     }
+  ```
  However faker does not support unique dates generation hence there are gaps between the days
  
  For data representation on the charts I've used following package:
@@ -81,7 +83,7 @@ One-to-many many relationship between product and quantity tables
     https://github.com/LaravelDaily/laravel-charts
     
  Configuration:
- 
+ ```php
     $chart_options = [
             'chart_title' => 'Price history',
             'report_type' => 'group_by_date',
@@ -96,6 +98,7 @@ One-to-many many relationship between product and quantity tables
             'conditions'            => [
                 ['name' => 'Prices', 'condition' => "product_id = {$id}",   'color' => 'black'],
             ],
+   ```
 
 ## API Documentation
 
@@ -110,15 +113,17 @@ To test this you can run scheduler command:
 
 This will be running command regstered in the App/Console/Kernel.php
 
+```php
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('delete:product')
             ->hourly();
         
     }
-
+```
 Command implementation:
 
+```
     public function handle()
     {
         $date = date("Y-m-d", strtotime('-7 day'));
@@ -139,9 +144,6 @@ Command implementation:
         }
 
     }
+   ```
 Hard deletes all soft deleted products which have been deleted for 7 days or more and removes images stored in the folder which belong to those products    
 
-## Unit Testing
-
-Unit tests test repository and models(relationships).
-To run tests execute 'vendor/bin/phpunit` from the root table
